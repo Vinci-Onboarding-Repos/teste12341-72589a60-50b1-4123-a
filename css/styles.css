@@ -14,6 +14,10 @@ a[href=undefined] {
     text-decoration: none; /* no underline */
 }
 
+button:disabled {
+  background: grey;
+}
+
 .Cardsprojects {
     gap: 14px;
     display: flex;
