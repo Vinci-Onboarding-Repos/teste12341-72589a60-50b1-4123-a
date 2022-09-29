@@ -7,6 +7,16 @@
   <link href="https://fonts.googleapis.com/css?family=Poppins" rel="stylesheet">
   <script> 
     window.addEventListener('load', async () => {
+      // Collect all .required into a NodeList, convert it into an array
+      const required = [...document.querySelectorAll('.required')];
+      // Reference the <button>
+      const done = document.getElementById('inputNext');
+      /**
+       * Bind the input event to each <input>...
+       * ...<button> is enabled if .every() <input> has a value
+       */
+      required.forEach(input => input.oninput = e =>
+        done.disabled = !required.every(input => input.value.length > 0));
         const ignore = ["WEB3_CONNECT_MODAL_ID", "template", "inputNext", "eth", "sol", "error-text"];
         var allElements = document.querySelectorAll('*[id]');
         for (var i = 0, n = allElements.length; i < n; ++i) {
